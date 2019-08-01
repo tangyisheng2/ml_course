@@ -15,8 +15,23 @@ X_poly = zeros(numel(X), p);
 %
 % 
 
+% X_poly (:,1) = X;
+% for i=2:p
+%     X_poly (:,i) = X_poly(:,i-1).^2;
+% end
 
+m = size(X,1);
 
+for i=1:m
+
+    poly_feature = zeros(p, 1);
+
+    for j=1:p
+        poly_feature(j) =  X(i).^j;
+    end
+
+    X_poly(i, :) = poly_feature;
+end
 
 
 

@@ -48,6 +48,7 @@ pause;
 %
 
 theta = [1 ; 1];
+
 J = linearRegCostFunction([ones(m, 1) X], y, theta, 1);
 
 fprintf(['Cost at theta = [1 ; 1]: %f '...
@@ -164,7 +165,8 @@ pause;
 %  lambda to see how the fit and learning curve change.
 %
 
-lambda = 0;
+%Change model parameter lambda here
+lambda = 1;
 [theta] = trainLinearReg(X_poly, y, lambda);
 
 % Plot training data and fit

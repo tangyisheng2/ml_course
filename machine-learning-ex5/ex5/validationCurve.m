@@ -39,7 +39,17 @@ error_val = zeros(length(lambda_vec), 1);
 %
 %
 
+for i = 1:length(lambda_vec)
+    lambda = lambda_vec(i);
+    
+    theta = trainLinearReg(X, y, lambda);   
+    % 用不同的X,y和regression lambda 训练theta，然后用Xval, yval对每个
+    % lambda下训练出来的theta做cross validation
 
+    error_train(i) = linearRegCostFunction(X, y, theta, 0);
+    error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
+
+end
 
 
 
